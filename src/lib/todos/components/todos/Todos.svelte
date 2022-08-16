@@ -1,9 +1,7 @@
 <script>
-  let todos = [];
+	export let todos = [];
 </script>
 
 <div class="container">
-  <ul class="todo-ul">
-
-  </ul>
+	<ul class="todo-ul" />
 </div>

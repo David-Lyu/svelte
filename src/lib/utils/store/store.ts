@@ -1,9 +1,5 @@
 import { writable } from 'svelte/store';
 import type { Writable } from 'svelte/store';
-type todo = {
-	date?: Date;
-	header: string;
-	body?: string;
-};
+import type { todo } from '$lib/todos/types/todo';
 
 export const todos: Writable<todo[]> = writable([]);

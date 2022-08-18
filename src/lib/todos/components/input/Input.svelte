@@ -8,10 +8,12 @@
 	let isHeaderTouched = false;
 	let isHeaderValid = false;
 
-	const onKeyDown = (e) => {
-		console.log(e);
+	const onKeyUp = (e) => {
 		if (e.currentTarget.value.length > 0) {
 			isHeaderTouched = true;
+			isHeaderValid = true;
+		} else {
+			isHeaderValid = false;
 		}
 	};
 
@@ -25,7 +27,6 @@
 		console.log(userInput);
 		todosStore.update((todos) => {
 			isHeaderTouched = false;
-			console.log(todos);
 			userInput = {
 				header: ''
 			};
@@ -38,7 +39,7 @@
 <form on:submit={onSubmit}>
 	<label name="todo">Todo</label>
 	<div>
-		<input id="todo" bind:value={userInput.header} on:keydown={onKeyDown} />
+		<input id="todo" bind:value={userInput.header} on:keyup={onKeyUp} />
 		{#if isHeaderTouched && !isHeaderValid}
 			<p>This field cannot be blank</p>
 		{/if}
